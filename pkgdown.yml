@@ -1,0 +1,8 @@
+pandoc: 3.1.11
+pkgdown: 2.1.0
+pkgdown_sha: ~
+articles: {}
+last_built: 2024-09-03T12:29Z
+urls:
+  reference: https://smnnlt.github.io/c3dr/reference
+  article: https://smnnlt.github.io/c3dr/articles

@@ -63,6 +63,213 @@ per point (x,y,z). The longest format has one row per data entry.</p></dd>
 depends on the 'format' argument.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Import example data</span></span></span>
+<span class="r-in"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="c3d_read.html">c3d_read</a></span><span class="op">(</span><span class="fu"><a href="c3d_example.html">c3d_example</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># wide format (default)</span></span></span>
+<span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu">c3d_data</span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     LASI_x   LASI_y   LASI_z   RASI_x   RASI_y   RASI_z   LPSI_x   LPSI_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 514.7515 426.1067 1111.939 517.2385 140.1397 1085.568 365.6084 348.0317</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 514.1281 425.5054 1112.686 517.2141 140.0569 1085.616 365.5312 347.8595</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 514.5764 425.8453 1112.585 517.1833 139.9610 1085.655 365.3459 347.6677</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 514.4996 425.7862 1112.925 517.1443 139.9025 1085.665 365.2338 347.4144</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 514.3743 425.7397 1113.257 517.0745 139.8348 1085.703 365.0397 347.1693</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 514.2354 425.6333 1113.539 516.9551 139.7852 1085.729 364.8643 346.9028</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     LPSI_z   RPSI_x   RPSI_y   RPSI_z   LKNE_x   LKNE_y   LKNE_z  LKNEM_x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1196.890 362.9891 233.4178 1188.475 856.6883 477.4284 931.5396 861.6418</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1197.053 362.3742 232.8284 1188.329 856.9571 477.0051 932.9371 861.7914</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1197.217 363.8182 233.2654 1188.284 857.0815 476.5963 933.9788 861.9058</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1197.338 362.7978 232.8914 1188.641 857.1405 476.2250 934.7276 862.6093</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1197.483 363.4906 232.7668 1188.364 857.1215 475.8634 935.1044 861.8013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1197.551 363.3411 232.5191 1188.353 857.0359 475.5696 935.1613 862.4017</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    LKNEM_y  LKNEM_z   LTH1_x   LTH1_y   LTH1_z   LTH2_x   LTH2_y   LTH2_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 348.6893 912.6926 556.9407 445.5279 1093.233 461.5810 484.5138 996.9789</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 348.3167 914.0199 556.6924 445.3139 1094.011 461.6376 484.5572 997.5353</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 347.9895 914.8847 556.4611 445.0827 1094.675 461.6241 484.5927 998.0654</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 347.3712 915.1040 556.2866 444.8941 1095.249 461.6314 484.5922 998.5113</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 347.4216 915.7787 556.1267 444.7067 1095.651 461.5277 484.5135 998.8354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 346.9744 915.3457 556.0225 444.5397 1095.916 461.4491 484.4469 999.0923</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     LTH3_x   LTH3_y    LTH3_z   LANK_x   LANK_y   LANK_z  LANKM_x  LANKM_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 618.8198 490.6886  999.7836 593.8951 465.1286 594.5244 619.9271 374.1197</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 618.8777 490.4714 1000.6926 598.0743 465.2888 592.5154 623.8638 376.5699</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 618.9465 490.2716 1001.4639 602.1898 465.4188 590.2581 627.3254 374.0181</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 618.9608 490.0875 1001.9938 606.1637 465.5125 587.6623 631.0927 373.5570</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 618.9377 489.8663 1002.3292 609.6573 465.9942 584.9485 635.5870 373.1499</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 618.8387 489.6512 1002.4543 613.5326 466.1401 581.8519 638.2738 374.0753</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    LANKM_z   LSH1_x   LSH1_y   LSH1_z   LSH2_x   LSH2_y   LSH2_z   LSH3_x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 598.0766 824.4224 485.3911 840.5141 705.0750 482.8584 809.3229 757.4846</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 596.0382 825.5483 485.0948 841.4969 706.5760 482.5997 808.8657 759.6621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 594.5025 826.5903 484.8466 842.1768 708.0157 482.3233 808.0698 761.8004</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 592.3682 827.5000 484.6260 842.5121 709.3627 482.0387 806.9543 763.7773</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 589.8939 828.3488 484.4037 842.5389 710.6137 481.8004 805.5677 765.7426</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 586.9269 829.0675 484.2529 842.2091 711.8052 481.5560 803.8725 767.5718</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     LSH3_y   LSH3_z  LHEEL_x  LHEEL_y  LHEEL_z   LTOE_x   LTOE_y   LTOE_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 479.3876 753.7142 514.7704 422.6205 603.3215 720.0737 413.6890 478.2625</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 479.2451 753.8408 518.7838 421.9493 600.5934 726.0595 414.1459 478.1236</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 479.1351 753.6589 522.7283 422.1717 597.1819 731.1229 413.9048 477.6134</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 479.0383 753.1715 526.6652 423.0420 594.3815 736.2537 413.5617 476.9532</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 478.9801 752.3715 530.5588 423.1298 588.9938 742.4587 414.4445 475.6951</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 478.9735 751.2814 535.4360 422.9064 584.6268 747.9913 415.0580 474.6500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     LMT1_x   LMT1_y   LMT1_z   RKNE_x   RKNE_y   RKNE_z  RKNEM_x  RKNEM_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 653.1116 480.0068 473.0594 667.4582 108.2254 654.0651 673.4458 231.1162</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 658.9452 480.1802 471.9532 667.7850 108.2683 654.1570 673.7586 231.2305</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 664.6748 480.4480 470.5638 668.7892 108.2554 654.1446 674.2491 231.2790</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 670.3167 480.6285 468.8625 668.8660 108.3528 654.7445 674.7839 231.4473</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 676.0384 480.7918 466.9814 669.5934 108.4214 655.2002 675.4896 231.5287</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 681.5680 481.0319 464.8879 670.4794 108.4669 655.7390 676.3953 231.6453</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    RKNEM_z   RTH1_x   RTH1_y   RTH1_z   RTH2_x   RTH2_y   RTH2_z   RTH3_x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 639.7902 551.4991 102.0260 957.8770 438.0938 100.8567 908.0378 545.8603</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 639.8687 551.6030 102.0928 958.0120 438.1938 100.8739 908.0499 546.1983</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 640.1057 551.6955 102.1351 958.2213 438.4279 100.9369 908.0381 546.5692</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 640.4193 551.8541 102.1687 958.4838 438.7115 100.8904 908.0275 547.0640</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 640.8445 552.0358 102.2187 958.7979 438.4610 100.7850 908.0863 547.6832</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 641.3894 552.2638 102.2372 959.1577 439.3214 100.8897 908.0050 548.3512</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RTH3_y   RTH3_z   RANK_x   RANK_y   RANK_z  RANKM_x  RANKM_y  RANKM_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 84.82973 825.1022 529.1824 100.9527 253.8246 547.0396 192.4435 251.2333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 84.91191 825.3035 525.5106 100.7597 256.1895 542.3630 192.4715 253.0090</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 84.92786 825.5040 520.5728 100.9982 258.6993 538.7316 191.1827 253.4906</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 84.99063 825.7899 516.5120 100.2318 261.4261 533.3562 192.4675 257.2672</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 85.04716 826.1232 512.1770 100.2545 264.1534 529.0412 192.4419 259.7054</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 85.08219 826.4964 508.0998 100.2368 267.0361 524.7880 192.4788 262.3745</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RSH1_x   RSH1_y   RSH1_z   RSH2_x   RSH2_y   RSH2_z   RSH3_x   RSH3_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 645.4674 94.89973 551.6334 620.5325 103.2638 421.1098 560.0276 91.90547</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 644.9311 94.99104 552.0847 617.2792 103.5681 422.2121 558.3233 91.67406</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 644.4534 95.07063 552.6050 615.1069 103.2436 423.7668 556.6146 91.71754</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 644.1945 95.13682 553.2681 613.4543 103.1258 425.0541 555.1166 91.69396</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 644.8388 94.75622 554.1770 612.6721 102.7372 425.9631 553.6548 91.82237</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 643.8633 95.28757 554.9957 609.4379 103.2916 427.4734 552.3594 92.07978</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RSH3_z  RHEEL_x  RHEEL_y  RHEEL_z   RTOE_x   RTOE_y   RTOE_z   RMT1_x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 456.4983 448.7783 147.6142 250.8705 665.0450 165.8960 145.5502 604.7351</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 458.0758 445.6599 149.5639 252.6006 659.3677 165.6818 146.1170 598.7552</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 459.7312 441.2235 149.4842 255.8267 653.6268 165.7138 146.9346 593.0067</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 461.5735 436.6427 149.5059 259.2865 647.7939 165.9508 147.3388 587.1177</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 463.5056 431.2379 148.9065 263.5896 642.3110 165.5730 148.4176 581.2125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 465.6254 427.6499 148.1705 266.6668 637.9260 165.0814 150.3816 575.6886</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RMT1_y   RMT1_z     C7_x     C7_y     C7_z   LSHO_x   LSHO_y   LSHO_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 92.26361 130.3607 817.4973 312.4762 1494.744 846.1919 457.3620 1443.538</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 91.63152 131.9574 817.5986 312.5214 1494.941 846.0604 457.5100 1443.492</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 92.11982 133.2407 817.3567 313.0614 1495.811 845.9673 457.6955 1443.437</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 91.99049 134.9740 817.4622 312.8090 1494.930 845.8351 457.7886 1443.378</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 91.84732 136.8660 817.4047 312.9251 1494.891 845.6968 457.8827 1443.290</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 91.69695 139.0622 817.1279 313.4610 1495.641 845.6041 457.9243 1443.219</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RSHO_x   RSHO_y   RSHO_z   LELB_x   LELB_y   LELB_z  LELBM_x  LELBM_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 851.1216 172.5256 1432.270 950.8621 542.5662 1148.984 901.9384 488.9170</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 851.0892 172.7556 1432.262 950.7581 542.5716 1148.962 901.9533 488.8383</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 851.1324 172.9039 1432.270 950.6550 542.6104 1148.874 901.8727 488.7379</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 851.1041 173.0258 1432.222 950.5210 542.5968 1148.771 901.8300 488.6516</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 852.3744 172.3218 1433.234 950.3611 542.6442 1148.709 900.7737 486.1159</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 852.1905 172.4749 1433.146 950.2031 542.6553 1148.611 900.7938 486.1051</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    LELBM_z   LWRA_x   LWRA_y   LWRA_z   LWRB_x   LWRB_y   LWRB_z   RELB_x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1107.389 1157.327 504.6099 984.6085 1111.233 539.2634 948.0496 940.6044</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1107.373 1157.248 504.7896 984.6223 1110.335 538.0922 947.3290 940.6827</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1107.332 1156.462 504.7099 984.1628 1110.916 539.2278 947.8694 940.6357</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1107.295 1156.445 504.9236 984.1204 1111.021 539.5594 947.9316 940.6412</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1107.167 1157.181 505.5011 984.5917 1110.143 538.5715 947.2253 940.6573</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1106.995 1156.759 505.6438 984.3540 1110.065 538.7292 947.1926 940.6178</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RELB_y   RELB_z  RELBM_x  RELBM_y  RELBM_z   RWRA_x   RWRA_y   RWRA_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 47.00834 1134.707 891.2269 84.46903 1085.364 1152.242 114.9173 980.4835</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 47.04180 1134.757 891.2283 84.49938 1085.432 1152.224 114.9496 980.4124</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 47.07716 1134.797 891.1844 84.53577 1085.436 1151.810 115.3100 980.2452</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 47.13808 1134.798 891.1785 84.58040 1085.454 1151.807 115.4557 980.2900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 47.23212 1134.781 891.1257 84.63851 1085.449 1151.177 115.1526 979.6901</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 47.24232 1134.774 891.1188 84.68137 1085.444 1151.858 115.8285 980.3809</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     RWRB_x   RWRB_y   RWRB_z     *41_x     *41_y    *41_z    *42_x    *42_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1117.877 60.25620 941.7724 -560.7023 -2763.998 704.2748      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1117.894 60.39595 941.7932 -560.4697 -2763.460 704.2449      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1117.910 60.60884 941.8330 -560.4849 -2763.555 704.5038 833.0398 366.9995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1117.920 60.77298 941.8450 -560.4772 -2763.507 704.3745 832.9602 367.1998</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1117.882 60.97908 941.8936 -560.4858 -2763.503 704.3643 832.6255 367.5161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1117.918 61.20596 941.9427 -560.8325 -2764.311 704.4123 832.6008 367.4972</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      *42_z    *43_x    *43_y    *43_z    *44_x    *44_y    *44_z *45_x *45_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      NaN      NaN      NaN      NaN      NaN      NaN      NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      NaN      NaN      NaN      NaN      NaN      NaN      NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1490.779 866.0865 502.3121 1443.046      NaN      NaN      NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1490.789      NaN      NaN      NaN      NaN      NaN      NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1490.641      NaN      NaN      NaN 348.1083 1005.719 848.5815   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1490.691 865.4515 502.9785 1442.683      NaN      NaN      NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   *45_z *46_x *46_y *46_z *47_x *47_y *47_z *48_x *48_y *48_z *49_x *49_y *49_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   *50_x *50_y *50_z *51_x *51_y *51_z *52_x *52_y *52_z *53_x *53_y *53_z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># long format</span></span></span>
+<span class="r-in"><span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu">c3d_data</span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     frame type      LASI      RASI      LPSI      RPSI     LKNE    LKNEM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x     1    x  514.7515  517.2385  365.6084  362.9891 856.6883 861.6418</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y     1    y  426.1067  140.1397  348.0317  233.4178 477.4284 348.6893</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z     1    z 1111.9390 1085.5681 1196.8900 1188.4749 931.5396 912.6926</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x     2    x  514.1281  517.2141  365.5312  362.3742 856.9571 861.7914</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y     2    y  425.5054  140.0569  347.8595  232.8284 477.0051 348.3167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z     2    z 1112.6857 1085.6162 1197.0529 1188.3287 932.9371 914.0199</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          LTH1     LTH2      LTH3     LANK    LANKM     LSH1     LSH2     LSH3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x  556.9407 461.5810  618.8198 593.8951 619.9271 824.4224 705.0750 757.4846</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y  445.5279 484.5138  490.6886 465.1286 374.1197 485.3911 482.8584 479.3876</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 1093.2332 996.9789  999.7836 594.5244 598.0766 840.5141 809.3229 753.7142</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x  556.6924 461.6376  618.8777 598.0743 623.8638 825.5483 706.5760 759.6621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y  445.3139 484.5572  490.4714 465.2888 376.5699 485.0948 482.5997 479.2451</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 1094.0111 997.5353 1000.6926 592.5154 596.0382 841.4969 808.8657 753.8408</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        LHEEL     LTOE     LMT1     RKNE    RKNEM     RTH1     RTH2      RTH3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x 514.7704 720.0737 653.1116 667.4582 673.4458 551.4991 438.0938 545.86029</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y 422.6205 413.6890 480.0068 108.2254 231.1162 102.0260 100.8567  84.82973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 603.3215 478.2625 473.0594 654.0651 639.7902 957.8770 908.0378 825.10217</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x 518.7838 726.0595 658.9452 667.7850 673.7586 551.6030 438.1938 546.19830</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y 421.9493 414.1459 480.1802 108.2683 231.2305 102.0928 100.8739  84.91191</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 600.5934 478.1236 471.9532 654.1570 639.8687 958.0120 908.0499 825.30347</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         RANK    RANKM      RSH1     RSH2      RSH3    RHEEL     RTOE      RMT1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x 529.1824 547.0396 645.46741 620.5325 560.02765 448.7783 665.0450 604.73511</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y 100.9527 192.4435  94.89973 103.2638  91.90547 147.6142 165.8960  92.26361</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 253.8246 251.2333 551.63342 421.1098 456.49829 250.8705 145.5502 130.36067</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x 525.5106 542.3630 644.93109 617.2792 558.32330 445.6599 659.3677 598.75525</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y 100.7597 192.4715  94.99104 103.5681  91.67406 149.5639 165.6818  91.63152</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 256.1895 253.0090 552.08466 422.2121 458.07578 252.6006 146.1170 131.95743</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            C7      LSHO      RSHO      LELB     LELBM      LWRA      LWRB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x  817.4973  846.1919  851.1216  950.8621  901.9384 1157.3271 1111.2330</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y  312.4762  457.3620  172.5256  542.5662  488.9170  504.6099  539.2634</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 1494.7443 1443.5385 1432.2704 1148.9841 1107.3885  984.6085  948.0496</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x  817.5986  846.0604  851.0892  950.7581  901.9533 1157.2476 1110.3347</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y  312.5214  457.5100  172.7556  542.5716  488.8383  504.7896  538.0922</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 1494.9412 1443.4917 1432.2625 1148.9624 1107.3729  984.6223  947.3290</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           RELB      RELBM      RWRA       RWRB        *41 *42 *43 *44 *45 *46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x  940.60437  891.22693 1152.2423 1117.87744  -560.7023 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y   47.00834   84.46903  114.9173   60.25620 -2763.9976 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 1134.70654 1085.36401  980.4835  941.77240   704.2748 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x  940.68268  891.22827 1152.2238 1117.89429  -560.4697 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y   47.04180   84.49938  114.9496   60.39595 -2763.4602 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 1134.75696 1085.43201  980.4124  941.79321   704.2449 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     *47 *48 *49 *50 *51 *52 *53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># longest format</span></span></span>
+<span class="r-in"><span><span class="va">ll</span> <span class="op">&lt;-</span> <span class="fu">c3d_data</span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"longest"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ll</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        frame type point     value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.LASI     1    x  LASI  514.7515</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.LASI     1    y  LASI  426.1067</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3.LASI     1    z  LASI 1111.9390</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.RASI     1    x  RASI  517.2385</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.RASI     1    y  RASI  140.1397</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3.RASI     1    z  RASI 1085.5681</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

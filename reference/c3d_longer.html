@@ -61,6 +61,67 @@ and k columns, with n as the number of recorded frames and k as the
 number of recorded points.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Import example data</span></span></span>
+<span class="r-in"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="c3d_read.html">c3d_read</a></span><span class="op">(</span><span class="fu"><a href="c3d_example.html">c3d_example</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># get point data in wide format</span></span></span>
+<span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"wide"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># convert to long data</span></span></span>
+<span class="r-in"><span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu">c3d_longer</span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     frame type      LASI      RASI      LPSI      RPSI     LKNE    LKNEM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x     1    x  514.7515  517.2385  365.6084  362.9891 856.6883 861.6418</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y     1    y  426.1067  140.1397  348.0317  233.4178 477.4284 348.6893</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z     1    z 1111.9390 1085.5681 1196.8900 1188.4749 931.5396 912.6926</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x     2    x  514.1281  517.2141  365.5312  362.3742 856.9571 861.7914</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y     2    y  425.5054  140.0569  347.8595  232.8284 477.0051 348.3167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z     2    z 1112.6857 1085.6162 1197.0529 1188.3287 932.9371 914.0199</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          LTH1     LTH2      LTH3     LANK    LANKM     LSH1     LSH2     LSH3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x  556.9407 461.5810  618.8198 593.8951 619.9271 824.4224 705.0750 757.4846</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y  445.5279 484.5138  490.6886 465.1286 374.1197 485.3911 482.8584 479.3876</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 1093.2332 996.9789  999.7836 594.5244 598.0766 840.5141 809.3229 753.7142</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x  556.6924 461.6376  618.8777 598.0743 623.8638 825.5483 706.5760 759.6621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y  445.3139 484.5572  490.4714 465.2888 376.5699 485.0948 482.5997 479.2451</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 1094.0111 997.5353 1000.6926 592.5154 596.0382 841.4969 808.8657 753.8408</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        LHEEL     LTOE     LMT1     RKNE    RKNEM     RTH1     RTH2      RTH3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x 514.7704 720.0737 653.1116 667.4582 673.4458 551.4991 438.0938 545.86029</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y 422.6205 413.6890 480.0068 108.2254 231.1162 102.0260 100.8567  84.82973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 603.3215 478.2625 473.0594 654.0651 639.7902 957.8770 908.0378 825.10217</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x 518.7838 726.0595 658.9452 667.7850 673.7586 551.6030 438.1938 546.19830</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y 421.9493 414.1459 480.1802 108.2683 231.2305 102.0928 100.8739  84.91191</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 600.5934 478.1236 471.9532 654.1570 639.8687 958.0120 908.0499 825.30347</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         RANK    RANKM      RSH1     RSH2      RSH3    RHEEL     RTOE      RMT1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x 529.1824 547.0396 645.46741 620.5325 560.02765 448.7783 665.0450 604.73511</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y 100.9527 192.4435  94.89973 103.2638  91.90547 147.6142 165.8960  92.26361</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 253.8246 251.2333 551.63342 421.1098 456.49829 250.8705 145.5502 130.36067</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x 525.5106 542.3630 644.93109 617.2792 558.32330 445.6599 659.3677 598.75525</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y 100.7597 192.4715  94.99104 103.5681  91.67406 149.5639 165.6818  91.63152</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 256.1895 253.0090 552.08466 422.2121 458.07578 252.6006 146.1170 131.95743</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            C7      LSHO      RSHO      LELB     LELBM      LWRA      LWRB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x  817.4973  846.1919  851.1216  950.8621  901.9384 1157.3271 1111.2330</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y  312.4762  457.3620  172.5256  542.5662  488.9170  504.6099  539.2634</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 1494.7443 1443.5385 1432.2704 1148.9841 1107.3885  984.6085  948.0496</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x  817.5986  846.0604  851.0892  950.7581  901.9533 1157.2476 1110.3347</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y  312.5214  457.5100  172.7556  542.5716  488.8383  504.7896  538.0922</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 1494.9412 1443.4917 1432.2625 1148.9624 1107.3729  984.6223  947.3290</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           RELB      RELBM      RWRA       RWRB        *41 *42 *43 *44 *45 *46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x  940.60437  891.22693 1152.2423 1117.87744  -560.7023 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y   47.00834   84.46903  114.9173   60.25620 -2763.9976 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z 1134.70654 1085.36401  980.4835  941.77240   704.2748 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x  940.68268  891.22827 1152.2238 1117.89429  -560.4697 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y   47.04180   84.49938  114.9496   60.39595 -2763.4602 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z 1134.75696 1085.43201  980.4124  941.79321   704.2449 NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     *47 *48 *49 *50 *51 *52 *53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.x NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.y NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1.z NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.x NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.y NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.z NaN NaN NaN NaN NaN NaN NaN</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

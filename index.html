@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Work with motion capture data in R">
-<meta name="description" content="An R wrapper for the EZC3D library to work with c3d motion capture data.">
-<meta property="og:description" content="An R wrapper for the EZC3D library to work with c3d motion capture data.">
+<meta name="description" content="An R wrapper for the EZC3D library to work with C3D motion capture data.">
+<meta property="og:description" content="An R wrapper for the EZC3D library to work with C3D motion capture data.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -61,6 +61,8 @@
 <div class="section level2">
 <h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
 </h2>
+<p>C3D (<a href="https://www.c3d.org/" class="external-link uri">https://www.c3d.org/</a>) is a file format for biomechanical data, namely motion capture recording with additional analog data (e.g., from force plates or electromyography).</p>
+<p>The <code>c3dr</code> package allow to read and analyze C3D files in R (<a href="https://www.r-project.org/about.html" class="external-link uri">https://www.r-project.org/about.html</a>), a programming language popular for statistical analyses and data visualization. It is build on the open-source C++ library EZC3D (<a href="https://github.com/pyomeca/ezc3d" class="external-link uri">https://github.com/pyomeca/ezc3d</a>).</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -74,12 +76,13 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="section level3">
-<h3 id="import-data">Import Data<a class="anchor" aria-label="anchor" href="#import-data"></a>
+<h3 id="read-data">Read Data<a class="anchor" aria-label="anchor" href="#read-data"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/smnnlt/c3dr" class="external-link">c3dr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># get example data. Insert your file path instead</span></span>
+<span><span class="co"># get example data. Insert your file path instead, e.g.</span></span>
+<span><span class="co"># path &lt;- "folder/myfilename.c3d"</span></span>
 <span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c3d_example.html">c3d_example</a></span><span class="op">(</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co"># import data</span></span>

@@ -2,8 +2,8 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
-  start: start.html
-last_built: 2024-09-22T16:09Z
+  c3dr: c3dr.html
+last_built: 2024-09-23T08:17Z
 urls:
   reference: https://smnnlt.github.io/c3dr/reference
   article: https://smnnlt.github.io/c3dr/articles

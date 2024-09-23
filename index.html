@@ -31,13 +31,8 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="articles/c3dr.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/start.html">Getting Started</a></li>
-  </ul>
-</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -67,8 +62,8 @@
 <div class="section level2">
 <h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
 </h2>
-<p>C3D (<a href="https://www.c3d.org/" class="external-link uri">https://www.c3d.org/</a>) is a file format for biomechanical data, namely motion capture recording with additional analog data (e.g., from force plates or electromyography).</p>
-<p>The <code>c3dr</code> package allow to read and analyze C3D files in R (<a href="https://www.r-project.org/about.html" class="external-link uri">https://www.r-project.org/about.html</a>), a programming language popular for statistical analyses and data visualization. It is build on the open-source C++ library EZC3D (<a href="https://github.com/pyomeca/ezc3d" class="external-link uri">https://github.com/pyomeca/ezc3d</a>).</p>
+<p>C3D (<a href="https://www.c3d.org/" class="external-link uri">https://www.c3d.org/</a>) is a file format for biomechanical data, namely motion capture recordings with additional analog data (e.g., from force plates or electromyography).</p>
+<p>The <code>c3dr</code> package allow to read and analyze C3D files in R (<a href="https://www.r-project.org/about.html" class="external-link uri">https://www.r-project.org/about.html</a>), a programming language popular for statistical analyses and data visualization. <code>c3dr</code> is build on the open-source C++ library EZC3D (<a href="https://github.com/pyomeca/ezc3d" class="external-link uri">https://github.com/pyomeca/ezc3d</a>).</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -89,7 +84,7 @@
 <span></span>
 <span><span class="co"># get example data. Insert your file path instead, e.g.</span></span>
 <span><span class="co"># path &lt;- "folder/myfilename.c3d"</span></span>
-<span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c3d_example.html">c3d_example</a></span><span class="op">(</span><span class="op">)</span> </span>
+<span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c3d_example.html">c3d_example</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># import data</span></span>
 <span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c3d_read.html">c3d_read</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>

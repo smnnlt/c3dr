@@ -8,8 +8,8 @@
 <title>Getting Started • c3dr</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="c3dr_files/libs/quarto-html/popper.min.js"></script><script src="c3dr_files/libs/quarto-html/tippy.umd.min.js"></script><link href="c3dr_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="c3dr_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting Started">
@@ -49,7 +49,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Getting Started</h1>
+      <h1></h1>
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-    <section class="level2"><h2 id="what-are-c3d-files">What are C3D files?<a class="anchor" aria-label="anchor" href="#what-are-c3d-files"></a>
-</h2>
+    <header id="title-block-header" class="quarto-title-block"><h1 class="title">Getting Started</h1></header><section class="section level3"><h3 id="what-are-c3d-files">What are C3D files?<a class="anchor" aria-label="anchor" href="#what-are-c3d-files"></a>
+</h3>
 <p>C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file’s structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, …), and a data section with the point data and additional analog data (e.g., from electromyography or force platforms). You can find more details about the C3D format on its <a href="https://www.c3d.org/index.html" class="external-link">Website</a> and in the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf" class="external-link">C3D User Guide</a>.</p>
-</section><section class="level2"><h2 id="why-use-the-c3dr-package-for-r">Why use the c3dr package for R<a class="anchor" aria-label="anchor" href="#why-use-the-c3dr-package-for-r"></a>
-</h2>
+</section><section class="section level3"><h3 id="why-use-the-c3dr-package-for-r">Why use the c3dr package for R?<a class="anchor" aria-label="anchor" href="#why-use-the-c3dr-package-for-r"></a>
+</h3>
 <p>Different programs for working with C3D files exist, but free open-source solutions that enable reproducible analysis are rare. Currently the best solution is the <a href="https://github.com/pyomeca/ezc3d" class="external-link">EZC3D</a> library, which has bindings for Matlab, Python, and Octave. However, R, a popular programming language for data science, previously did not support C3D files. By using the EZC3D C++ library, the <code>c3dr</code> package for R now provides a possibility to work with C3D data in the R programming environment.</p>
-</section><section class="level2"><h2 id="install-the-c3dr-package">Install the c3dr package<a class="anchor" aria-label="anchor" href="#install-the-c3dr-package"></a>
-</h2>
+</section><section class="section level3"><h3 id="install-the-c3dr-package">Install the c3dr package<a class="anchor" aria-label="anchor" href="#install-the-c3dr-package"></a>
+</h3>
 <p>The <code>c3dr</code> package is currently available from GitHub. To install it, you first need to install the <code>pak</code> package with <code>install.packages("pak")</code>. After that simply execute the following code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"smnnlt/c3dr"</span><span class="op">)</span></span></code></pre></div>
 </div>
-</section><section class="level2"><h2 id="import-c3d-files-with-c3dr">Import C3D files with c3dr<a class="anchor" aria-label="anchor" href="#import-c3d-files-with-c3dr"></a>
-</h2>
+</section><section class="section level3"><h3 id="import-c3d-files-with-c3dr">Import C3D files with c3dr<a class="anchor" aria-label="anchor" href="#import-c3d-files-with-c3dr"></a>
+</h3>
 <p>To import a c3d file simply run the <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function with the absolute or relative file path as argument.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
@@ -93,9 +93,9 @@
 <span><span class="co">#&gt; - 7.85 s measurement duration (240 fps)</span></span>
 <span><span class="co">#&gt; - 1 analog channels (960 fps)</span></span></code></pre></div>
 </div>
-</section><section class="level2"><h2 id="data-structure-of-c3d-objects-in-r">Data structure of C3D objects in R<a class="anchor" aria-label="anchor" href="#data-structure-of-c3d-objects-in-r"></a>
-</h2>
-<p>The <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function returns a c3d object, which is basically a list with different components.</p>
+</section><section class="section level3"><h3 id="data-structure-of-c3d-objects-in-r">Data structure of C3D objects in R<a class="anchor" aria-label="anchor" href="#data-structure-of-c3d-objects-in-r"></a>
+</h3>
+<p>The <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function returns a c3d object, which is a list with different components.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">f</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
@@ -109,8 +109,8 @@
 <span><span class="co">#&gt;  $ parameters:List of 10</span></span>
 <span><span class="co">#&gt;  - attr(*, "class")= chr [1:2] "c3d" "list"</span></span></code></pre></div>
 </div>
-<section class="level3"><h3 id="header">Header<a class="anchor" aria-label="anchor" href="#header"></a>
-</h3>
+<section class="level3"><h4 id="header">Header<a class="anchor" aria-label="anchor" href="#header"></a>
+</h4>
 <p>The header contains basic information about the number of frames (<code>nframes</code>), the number of data points (<code>npoints</code>), the number of analog channels (<code>nanalogs</code>), the number of analog frames per data frame (<code>analogperframe</code>), the frame rate in Hz (<code>framerate</code>) and the number of saved events (<code>nevents</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
@@ -133,8 +133,8 @@
 <span><span class="co">#&gt; $nevents</span></span>
 <span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
 </div>
-</section><section class="level3"><h3 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a>
-</h3>
+</section><section class="level3"><h4 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a>
+</h4>
 <p>The parameters are all the meta data saved in the C3D file. Parameters in C3D files are organized in groups, and these are preserved during import with <code><a href="../reference/c3d_read.html">c3d_read()</a></code>. The parameter section of a c3d object is therefore a list of lists. To access a single parameter, you first need to access its group and then the parameter. For example the <code>SOFTWARE</code> parameter is part of the <code>MANUFACTURER</code> group. To retrieve the parameter value from a c3d object named <code>f</code> you need to call <code>f$parameters$MANUFACTURER$SOFTWARE</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
@@ -155,8 +155,8 @@
 <span><span class="va">f</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">MANUFACTURER</span><span class="op">$</span><span class="va">SOFTWARE</span></span>
 <span><span class="co">#&gt; [1] "Vicon Nexus"</span></span></code></pre></div>
 </div>
-</section><section class="level3"><h3 id="point-data">Point data<a class="anchor" aria-label="anchor" href="#point-data"></a>
-</h3>
+</section><section class="level3"><h4 id="point-data">Point data<a class="anchor" aria-label="anchor" href="#point-data"></a>
+</h4>
 <p>c3d objects in R save point data as a nested list, with the two levels frame and point. For example for a c3d object named <code>f</code>, <code>f$data[[1]][[2]]</code> returns a three-coordinate vector of the first frame for the second data point.</p>
 <p>Usually it is much more convenient to work with the point data in a table (i.e., a data.frame). This conversion happens with <code><a href="../reference/c3d_data.html">c3d_data()</a></code>, see <a href="#sec-point" class="quarto-xref">Section 6</a>.</p>
 <div class="cell">
@@ -165,8 +165,8 @@
 <span><span class="va">f</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1]  517.2385  140.1397 1085.5681</span></span></code></pre></div>
 </div>
-</section><section class="level3"><h3 id="analog-data">Analog data<a class="anchor" aria-label="anchor" href="#analog-data"></a>
-</h3>
+</section><section class="level3"><h4 id="analog-data">Analog data<a class="anchor" aria-label="anchor" href="#analog-data"></a>
+</h4>
 <p>Analog data in c3d objects is saved as a nested list. The sampling frequency of analog data is a multiplier of the point frame rate. For example, point data can be collected in 240 Hz, whereas analog data in sampled at 960 Hz. Therefore each frame of point data can correspond to multiple subframes of analog data. In <code>c3dr</code> analog data is saved as a list of matrices, with each list entry corresponding to a single point frame. The row of each frame matrix corresponds to a subframe, with the column corresponding to a analog channel. For example for a c3d object named <code>f</code>, <code>f$analog[[2]][3,1]</code> returns the value of the first analog channel for the third subframe of the second point frame.</p>
 <p>Often it is more convenient to work with the analog data in a table (i.e., a data.frame). This conversion happens with <code><a href="../reference/c3d_analog.html">c3d_analog()</a></code>, see <a href="#sec-analog" class="quarto-xref">Section 7</a>.</p>
 <div class="cell">
@@ -184,10 +184,62 @@
 <span><span class="co">#&gt; [3,]  0.0000000000</span></span>
 <span><span class="co">#&gt; [4,]  0.0000000000</span></span></code></pre></div>
 </div>
-</section></section><section class="level2"><h2 id="sec-point">Work with C3D point data<a class="anchor" aria-label="anchor" href="#sec-point"></a>
-</h2>
-</section><section class="level2"><h2 id="sec-analog">Work with C3D analog data<a class="anchor" aria-label="anchor" href="#sec-analog"></a>
-</h2>
+</section></section><section class="section level3"><h3 id="sec-point">Work with C3D point data<a class="anchor" aria-label="anchor" href="#sec-point"></a>
+</h3>
+<p>To return a table of the imported point data of a c3d object, run the <code><a href="../reference/c3d_data.html">c3d_data()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">d</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span><span class="co">#&gt;     LASI_x   LASI_y   LASI_z   RASI_x   RASI_y</span></span>
+<span><span class="co">#&gt; 1 514.7515 426.1067 1111.939 517.2385 140.1397</span></span>
+<span><span class="co">#&gt; 2 514.1281 425.5054 1112.686 517.2141 140.0569</span></span>
+<span><span class="co">#&gt; 3 514.5764 425.8453 1112.585 517.1833 139.9610</span></span>
+<span><span class="co">#&gt; 4 514.4996 425.7862 1112.925 517.1443 139.9025</span></span>
+<span><span class="co">#&gt; 5 514.3743 425.7397 1113.257 517.0745 139.8348</span></span></code></pre></div>
+</div>
+<p>The table of point data has three different structures available, that can be selected by the <code>format</code> argument in the <code><a href="../reference/c3d_data.html">c3d_data()</a></code> call:</p>
+<ul>
+<li>The <code>wide</code> format (default) has one column per point coordinate and one row per frame.</li>
+<li>The <code>long</code> format has one column per point and three rows (x, y, z) per frame.</li>
+<li>The <code>longest</code> format has one column for data, and three rows (x, y, z) per each frame and point.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">d_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">f</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span>
+<span><span class="va">d_long</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span><span class="co">#&gt;     frame type      LASI      RASI      LPSI</span></span>
+<span><span class="co">#&gt; 1.x     1    x  514.7515  517.2385  365.6084</span></span>
+<span><span class="co">#&gt; 1.y     1    y  426.1067  140.1397  348.0317</span></span>
+<span><span class="co">#&gt; 1.z     1    z 1111.9390 1085.5681 1196.8900</span></span>
+<span><span class="co">#&gt; 2.x     2    x  514.1281  517.2141  365.5312</span></span>
+<span><span class="co">#&gt; 2.y     2    y  425.5054  140.0569  347.8595</span></span>
+<span></span>
+<span><span class="va">d_longest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">f</span>, format <span class="op">=</span> <span class="st">"longest"</span><span class="op">)</span></span>
+<span><span class="va">d_longest</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
+<span><span class="co">#&gt;        frame type point     value</span></span>
+<span><span class="co">#&gt; 1.LASI     1    x  LASI  514.7515</span></span>
+<span><span class="co">#&gt; 2.LASI     1    y  LASI  426.1067</span></span>
+<span><span class="co">#&gt; 3.LASI     1    z  LASI 1111.9390</span></span>
+<span><span class="co">#&gt; 1.RASI     1    x  RASI  517.2385</span></span>
+<span><span class="co">#&gt; 2.RASI     1    y  RASI  140.1397</span></span></code></pre></div>
+</div>
+</section><section class="section level3"><h3 id="sec-analog">Work with C3D analog data<a class="anchor" aria-label="anchor" href="#sec-analog"></a>
+</h3>
+<p>To return a table of the imported analog data of a c3d file, use the <code><a href="../reference/c3d_analog.html">c3d_analog()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_analog.html">c3d_analog</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Electric Potential.Trigger</span></span>
+<span><span class="co">#&gt; 1              -0.0001525879</span></span>
+<span><span class="co">#&gt; 2              -0.0001525879</span></span>
+<span><span class="co">#&gt; 3               0.0000000000</span></span>
+<span><span class="co">#&gt; 4               0.0000000000</span></span>
+<span><span class="co">#&gt; 5               0.0000000000</span></span>
+<span><span class="co">#&gt; 6               0.0003051758</span></span></code></pre></div>
+</div>
 </section><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   c3dr: c3dr.html
-last_built: 2024-09-23T08:17Z
+last_built: 2024-11-26T09:11Z
 urls:
   reference: https://smnnlt.github.io/c3dr/reference
   article: https://smnnlt.github.io/c3dr/articles

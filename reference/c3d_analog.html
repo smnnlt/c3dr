@@ -66,13 +66,111 @@ the number of recorded analog channels.</p>
 <span class="r-in"><span><span class="co"># get analog data</span></span></span>
 <span class="r-in"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu">c3d_analog</span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Electric Potential.Trigger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              -0.0001525879</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              -0.0001525879</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               0.0000000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4               0.0000000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5               0.0000000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6               0.0003051758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       FP1_FX     FP1_FY     FP1_FZ     FP1_MX     FP1_MY     FP1_MZ    Nothing</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.3096819 -0.2837415 -0.2492561 -0.2404060 -0.2407112 -0.2484932 -0.2301822</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.3087664 -0.2861829 -0.2495613 -0.2401009 -0.2402534 -0.2526131 -0.2304873</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.3057146 -0.2837415 -0.2494087 -0.2401009 -0.2407112 -0.2529182 -0.2301822</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.3078508 -0.2858777 -0.2484932 -0.2388802 -0.2410164 -0.2561226 -0.2306399</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.3109026 -0.2854199 -0.2507820 -0.2396431 -0.2416267 -0.2574959 -0.2320132</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -0.3109026 -0.2858777 -0.2520027 -0.2390327 -0.2422371 -0.2588692 -0.2327762</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Channel_08 Channel_09 Channel_10     PF2-FX     PF2-FY     PF2-FZ     PF2-MX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.1921873 -0.4071870 -0.3713284 -0.3545432 -0.3501182 -0.3626308 -0.3633938</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.1940184 -0.4074922 -0.3716335 -0.3553061 -0.3504233 -0.3623257 -0.3630886</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.1938658 -0.4096284 -0.3730068 -0.3554587 -0.3508811 -0.3618679 -0.3627834</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.1943235 -0.4079499 -0.3725491 -0.3560691 -0.3511863 -0.3630886 -0.3632412</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.1950865 -0.4067292 -0.3723965 -0.3560691 -0.3511863 -0.3636990 -0.3630886</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -0.1966124 -0.4068818 -0.3720913 -0.3554587 -0.3511863 -0.3629360 -0.3641567</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       PF2-MY        PF2-MZ Channel_17 Channel_18 Channel_19 Channel_20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.3566794  7.629395e-05  -2.534905  -2.537346  -2.528344  -2.513085</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.3557639  7.629395e-05  -2.524834  -2.530480  -2.522545  -2.510796</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.3559165 -2.288818e-04  -2.541314  -2.537804  -2.526360  -2.510033</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.3557639  2.288818e-04  -2.558251  -2.550317  -2.534752  -2.516747</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.3562217 -5.340576e-04  -2.548791  -2.549248  -2.537957  -2.521324</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -0.3560691  3.814697e-04  -2.543298  -2.546654  -2.537346  -2.520867</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Channel_21 Channel_22 Channel_23 Channel_24 Channel_25 Channel_26 Channel_27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -2.519951  -2.523613  -2.522698  -2.488518  -4.017777  -4.133898  -4.168688</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -2.516442  -2.521324  -2.520104  -2.488060  -4.017930  -4.134966  -4.167925</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -2.515221  -2.519799  -2.518730  -2.485466  -4.014267  -4.130999  -4.167162</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -2.518578  -2.520409  -2.518120  -2.485771  -4.016556  -4.132219  -4.168231</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -2.524224  -2.524376  -2.521782  -2.488975  -4.016098  -4.132982  -4.167162</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  -2.526207  -2.528649  -2.524682  -2.489586  -4.018845  -4.133593  -4.168078</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Channel_28 Channel_29 Channel_30 Channel_31 Channel_32   TAPIS FZ1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -4.182269  -4.196307  -4.204394  -4.192798  -4.164263  0.01655656</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -4.180133  -4.196307  -4.203479  -4.192035  -4.163195 -0.01914996</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -4.181506  -4.196460  -4.203326  -4.192187  -4.164568 -0.03746051</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -4.181964  -4.197070  -4.203021  -4.192340  -4.164416  0.02052385</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -4.180285  -4.196918  -4.203326  -4.192340  -4.165942  0.02433854</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  -4.182117  -4.196002  -4.203021  -4.192340  -4.164111  0.01472503</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     TAPIS FZ2   TAPIS FZ3   TAPIS FZ4  TAPIS FY1+4  TAPIS FY2+3 TAPIS FX1+2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -0.01234454  0.01437396 -0.01666290  0.048264354 -0.068451934  0.00860627</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.01451141 -0.01355010 -0.01239043  0.060776561 -0.017639685 -0.04174821</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.01374847  0.00506562 -0.01330596  0.005843967 -0.003295947 -0.04327409</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.01374847 -0.02377397  0.01080340 -0.067093998 -0.011230517  0.04675372</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.01432818 -0.02026445  0.05612296 -0.037186295 -0.049225856  0.09085257</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  0.02809173 -0.04208452  0.02270526  0.019577354 -0.122621588  0.03515704</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   TAPIS FX3+4         EMG 1        EMG 2        EMG 3        EMG 4        EMG 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0.08801371 -3.601184e-05 7.324442e-06 1.647999e-05 1.849422e-04 3.112888e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.06481987  4.638813e-05 8.697775e-06 1.533555e-05 1.203955e-04 2.861110e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.01400715  1.280251e-04 1.007111e-05 1.449629e-05 7.187109e-05 2.838221e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.08014101  1.841029e-04 1.190222e-05 1.350444e-05 4.325999e-05 3.028962e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.07388443  1.898251e-04 1.464888e-05 1.190222e-05 3.845332e-05 3.418073e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  0.02697760  1.909696e-04 1.808222e-05 1.144444e-05 3.433332e-05 3.715629e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          EMG 6        EMG 7         EMG 8        EMG 9        EMG 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.434370e-05 2.288888e-05 -1.892148e-05 5.035554e-05 -2.441481e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1.480148e-05 2.197333e-05 -1.937925e-05 5.104221e-05 -2.807703e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1.586963e-05 2.334666e-05 -2.212592e-05 6.714072e-05  1.846370e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1.670889e-05 2.471999e-05 -2.586444e-05 9.628590e-05  8.239998e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1.647999e-05 2.380444e-05 -2.929777e-05 1.361125e-04  1.309244e-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1.396222e-05 2.151555e-05 -2.769555e-05 1.557970e-04  1.403089e-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         EMG 11        EMG 12       EMG 13      EMG 14        EMG 15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.827021e-04 -2.288888e-05 1.831111e-06 0.002682272 -2.288888e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1.698355e-04 -1.510666e-05 1.831111e-06 0.002633747 -2.082888e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3.799555e-05 -7.629627e-06 3.204443e-06 0.002587970 -1.876888e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4.600665e-05 -1.983703e-06 5.264443e-06 0.002543336 -1.632740e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2.526933e-04  3.051851e-07 7.324442e-06 0.002498245 -1.312296e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 5.161443e-04  3.967406e-06 8.926664e-06 0.002449034 -9.689626e-06</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          EMG 16 Sync Amti Gen 5 OR6-5-1000 3581_1 Amti Gen 5 OR6-5-1000 3581_2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -8.850368e-06    0                    0.0461483                   0.13992119</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -9.079257e-06    0                   -0.0461483                   0.13992119</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -8.545183e-06    0                    0.1845932                   0.09328079</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -7.553331e-06    0                   -0.1384449                   0.04664040</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -6.408887e-06    0                   -0.2768898                   0.04664040</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -4.119999e-06    0                    0.0922966                  -0.04664040</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Amti Gen 5 OR6-5-1000 3581_3 Amti Gen 5 OR6-5-1000 3581_4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    0.1835251                      0.00000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    0.0000000                    -76.60294</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    0.1835251                     38.30147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    0.0000000                     19.15073</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   -0.5505753                    -38.30147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   -0.5505753                    -19.15073</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Amti Gen 5 OR6-5-1000 3581_5 Amti Gen 5 OR6-5-1000 3581_6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                     19.01722                     29.64163</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    -76.06888                     49.40271</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    -19.01722                    -59.28326</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     76.06888                     69.16380</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      0.00000                     59.28326</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    -19.01722                     29.64163</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Amti Gen 5 OR6-5-1000 3582_1 Amti Gen 5 OR6-5-1000 3582_2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   -0.1845169                   0.04633522</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   -0.1845169                  -0.18534088</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   -0.3229046                   0.23167610</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   -0.1383877                  -0.13900566</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   -0.1383877                   0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    0.2306461                   0.13900566</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Amti Gen 5 OR6-5-1000 3582_3 Amti Gen 5 OR6-5-1000 3582_4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   -0.7229614                    -95.22438</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    0.0000000                     19.04488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   -0.7229614                    -38.08975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   -0.3614807                    -38.08975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   -0.1807404                    -19.04488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    0.5422211                    -57.13463</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Amti Gen 5 OR6-5-1000 3582_5 Amti Gen 5 OR6-5-1000 3582_6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                     56.80275                     0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    -56.80275                   -49.889088</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     37.86850                     0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     75.73700                     0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                     94.67125                    19.955635</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      0.00000                     9.977818</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

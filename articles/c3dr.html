@@ -76,7 +76,7 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"smnnlt/c3dr"</span><span class="op">)</span></span></code></pre></div>
 </div>
-</section><section class="level2"><h2 id="import-c3d-files-with-c3dr">Import C3D files with c3dr<a class="anchor" aria-label="anchor" href="#import-c3d-files-with-c3dr"></a>
+</section><section class="level2"><h2 id="read-c3d-files-with-c3dr">Read C3D files with c3dr<a class="anchor" aria-label="anchor" href="#read-c3d-files-with-c3dr"></a>
 </h2>
 <p>To import a c3d file simply run the <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function with the absolute or relative file path as argument.</p>
 <div class="cell">
@@ -86,28 +86,27 @@
 <span><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_example.html">c3d_example</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># import C3D file</span></span>
-<span><span class="va">f</span> <span class="op">=</span> <span class="fu"><a href="../reference/c3d_read.html">c3d_read</a></span><span class="op">(</span><span class="va">filepath</span><span class="op">)</span></span>
-<span><span class="va">f</span></span>
+<span><span class="va">d</span> <span class="op">=</span> <span class="fu"><a href="../reference/c3d_read.html">c3d_read</a></span><span class="op">(</span><span class="va">filepath</span><span class="op">)</span></span>
+<span><span class="va">d</span></span>
 <span><span class="co">#&gt; A c3d object with</span></span>
 <span><span class="co">#&gt; - 55 data points and 340 frames</span></span>
 <span><span class="co">#&gt; - 1.70 s measurement duration (200 fps)</span></span>
-<span><span class="co">#&gt; - 69 analog channels (2000 fps)</span></span></code></pre></div>
+<span><span class="co">#&gt; - 69 analog channels (2000 fps)</span></span>
+<span><span class="co">#&gt; - 2 force platforms with 3400 frames</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h2 id="data-structure-of-c3d-objects-in-r">Data structure of C3D objects in R<a class="anchor" aria-label="anchor" href="#data-structure-of-c3d-objects-in-r"></a>
 </h2>
 <p>The <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function returns a c3d object, which is a list with different components.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">f</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; List of 8</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">d</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; List of 6</span></span>
 <span><span class="co">#&gt;  $ header       :List of 6</span></span>
 <span><span class="co">#&gt;  $ parameters   :List of 7</span></span>
 <span><span class="co">#&gt;  $ data         :List of 340</span></span>
 <span><span class="co">#&gt;  $ residuals    : num [1:340, 1:55] 1280 1280 1280 1280 1280 ...</span></span>
 <span><span class="co">#&gt;  $ analog       :List of 340</span></span>
 <span><span class="co">#&gt;  $ forceplatform:List of 2</span></span>
-<span><span class="co">#&gt;  $ labels       : chr [1:55] "L_IAS" "L_IPS" "R_IPS" "R_IAS" ...</span></span>
-<span><span class="co">#&gt;  $ alabels      : chr [1:69] "FP1_FX" "FP1_FY" "FP1_FZ" "FP1_MX" ...</span></span>
 <span><span class="co">#&gt;  - attr(*, "class")= chr [1:2] "c3d" "list"</span></span></code></pre></div>
 </div>
 <section class="level3"><h3 id="header">Header<a class="anchor" aria-label="anchor" href="#header"></a>
@@ -115,7 +114,7 @@
 <p>The header contains basic information about the number of frames (<code>nframes</code>), the number of data points (<code>npoints</code>), the number of analog channels (<code>nanalogs</code>), the number of analog frames per data frame (<code>analogperframe</code>), the frame rate in Hz (<code>framerate</code>) and the number of saved events (<code>nevents</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">f</span><span class="op">$</span><span class="va">header</span></span>
+<code class="sourceCode R"><span><span class="va">d</span><span class="op">$</span><span class="va">header</span></span>
 <span><span class="co">#&gt; $nframes</span></span>
 <span><span class="co">#&gt; [1] 340</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -139,7 +138,7 @@
 <p>The parameters are all the meta data saved in the C3D file. Parameters in C3D files are organized in groups, and these are preserved during import with <code><a href="../reference/c3d_read.html">c3d_read()</a></code>. The parameter section of a c3d object is therefore a list of lists. To access a single parameter, you first need to access its group and then the parameter. For example the <code>SOFTWARE</code> parameter is part of the <code>MANUFACTURER</code> group. To retrieve the parameter value from a c3d object named <code>f</code> you need to call <code>f$parameters$MANUFACTURER$SOFTWARE</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="va">parameters</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">parameters</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 7</span></span>
 <span><span class="co">#&gt;  $ POINT         :List of 12</span></span>
 <span><span class="co">#&gt;  $ ANALOG        :List of 10</span></span>
@@ -150,7 +149,7 @@
 <span><span class="co">#&gt;  $ PROCESSING    :List of 4</span></span>
 <span></span>
 <span><span class="co"># retrieve SOFTWARE parameter from MANUFACTURER group</span></span>
-<span><span class="va">f</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">MANUFACTURER</span><span class="op">$</span><span class="va">SOFTWARE</span></span>
+<span><span class="va">d</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">MANUFACTURER</span><span class="op">$</span><span class="va">SOFTWARE</span></span>
 <span><span class="co">#&gt; [1] "Qualisys Track Manager"</span></span></code></pre></div>
 </div>
 </section><section class="level3"><h3 id="point-data">Point data<a class="anchor" aria-label="anchor" href="#point-data"></a>
@@ -160,7 +159,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read the coordinates of the first frame for the second data point</span></span>
-<span><span class="va">f</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">d</span><span class="op">$</span><span class="va">data</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] -398.1731  237.0688  872.8574</span></span></code></pre></div>
 </div>
 </section><section class="level3"><h3 id="analog-data">Analog data<a class="anchor" aria-label="anchor" href="#analog-data"></a>
@@ -169,13 +168,13 @@
 <p>Often it is more convenient to work with the analog data in a table (i.e., a data.frame). This conversion happens with <code><a href="../reference/c3d_analog.html">c3d_analog()</a></code>, see <a href="#sec-analog" class="quarto-xref">Section 7</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">f</span><span class="op">$</span><span class="va">analog</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">]</span></span>
+<code class="sourceCode R"><span><span class="va">d</span><span class="op">$</span><span class="va">analog</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] -0.3131914</span></span>
 <span></span>
 <span><span class="co"># read the values of the first five analog channels for the first point frame</span></span>
 <span><span class="co"># The sampling frequency is ten times that of the point data, resulting in </span></span>
 <span><span class="co"># ten subframes</span></span>
-<span><span class="va">f</span><span class="op">$</span><span class="va">analog</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span><span class="va">d</span><span class="op">$</span><span class="va">analog</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">#&gt;             [,1]       [,2]       [,3]       [,4]       [,5]</span></span>
 <span><span class="co">#&gt;  [1,] -0.3096819 -0.2837415 -0.2492561 -0.2404060 -0.2407112</span></span>
 <span><span class="co">#&gt;  [2,] -0.3087664 -0.2861829 -0.2495613 -0.2401009 -0.2402534</span></span>
@@ -194,7 +193,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># this example file has data from two force platforms</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="va">forceplatform</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">forceplatform</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 2</span></span>
 <span><span class="co">#&gt;  $ :List of 5</span></span>
 <span><span class="co">#&gt;   ..$ forces : num [1:3400, 1:3] 0.1399 0.1399 0.0933 0.0466 0.0466 ...</span></span>
@@ -227,7 +226,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># view for the first force platform the force data for the first five frames</span></span>
-<span><span class="va">f</span><span class="op">$</span><span class="va">forceplatform</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">forces</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
+<span><span class="va">d</span><span class="op">$</span><span class="va">forceplatform</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">forces</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
 <span><span class="co">#&gt;            [,1]       [,2]       [,3]</span></span>
 <span><span class="co">#&gt; [1,] 0.13992119  0.0461483 -0.1835251</span></span>
 <span><span class="co">#&gt; [2,] 0.13992119 -0.0461483  0.0000000</span></span>
@@ -240,9 +239,9 @@
 <p>To return a table of the imported point data of a c3d object, run the <code><a href="../reference/c3d_data.html">c3d_data()</a></code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">d</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<span><span class="va">p</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">#&gt;     L_IAS_x  L_IAS_y  L_IAS_z   L_IPS_x  L_IPS_y</span></span>
 <span><span class="co">#&gt; 1 -220.1226 306.4248 846.3361 -398.1731 237.0688</span></span>
 <span><span class="co">#&gt; 2 -212.4696 306.5356 844.6985 -390.7831 237.8691</span></span>
@@ -258,8 +257,8 @@
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">f</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span>
-<span><span class="va">d_long</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
+<code class="sourceCode R"><span><span class="va">p_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span>
+<span><span class="va">p_long</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">#&gt;     frame type     L_IAS     L_IPS     R_IPS</span></span>
 <span><span class="co">#&gt; 1.x     1    x -220.1226 -398.1731 -392.8751</span></span>
 <span><span class="co">#&gt; 1.y     1    y  306.4248  237.0688  146.2103</span></span>
@@ -267,8 +266,8 @@
 <span><span class="co">#&gt; 2.x     2    x -212.4696 -390.7831 -385.6659</span></span>
 <span><span class="co">#&gt; 2.y     2    y  306.5356  237.8691  147.1048</span></span>
 <span></span>
-<span><span class="va">d_longest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">f</span>, format <span class="op">=</span> <span class="st">"longest"</span><span class="op">)</span></span>
-<span><span class="va">d_longest</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
+<span><span class="va">p_longest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"longest"</span><span class="op">)</span></span>
+<span><span class="va">p_longest</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span>
 <span><span class="co">#&gt;         frame type point     value</span></span>
 <span><span class="co">#&gt; 1.L_IAS     1    x L_IAS -220.1226</span></span>
 <span><span class="co">#&gt; 2.L_IAS     1    y L_IAS  306.4248</span></span>
@@ -281,7 +280,7 @@
 <p>To return a table of the imported analog data of a c3d file, use the <code><a href="../reference/c3d_analog.html">c3d_analog()</a></code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_analog.html">c3d_analog</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_analog.html">c3d_analog</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span>
 <span><span class="va">a</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fl">41</span><span class="op">:</span><span class="fl">46</span><span class="op">]</span></span>
 <span><span class="co">#&gt;           EMG 1        EMG 2        EMG 3        EMG 4        EMG 5</span></span>
 <span><span class="co">#&gt; 1 -3.601184e-05 7.324442e-06 1.647999e-05 1.849422e-04 3.112888e-05</span></span>
@@ -295,6 +294,24 @@
 <span><span class="co">#&gt; 3 1.586963e-05</span></span>
 <span><span class="co">#&gt; 4 1.670889e-05</span></span>
 <span><span class="co">#&gt; 5 1.647999e-05</span></span></code></pre></div>
+</div>
+</section><section class="level2"><h2 id="write-c3d-files-with-c3dr">Write C3D files with c3dr<a class="anchor" aria-label="anchor" href="#write-c3d-files-with-c3dr"></a>
+</h2>
+<p>You can write in existing c3d object in R to a c3d file with the <code>c3d_write</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/c3d_write.html">c3d_write</a></span><span class="op">(</span><span class="va">d</span>, <span class="st">"newfile.c3d"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<p>To make modifications to the point or analog data before writing the file, you can use <code><a href="../reference/c3d_setdata.html">c3d_setdata()</a></code>. This function allows you to update a c3d object with modified data, e.g., to remove, add, rename or convert frames, points and analog channels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># E.g. remove the last point from the point data</span></span>
+<span><span class="va">full_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span>
+<span><span class="va">cut_data</span> <span class="op">&lt;-</span> <span class="va">full_data</span><span class="op">[</span>,<span class="op">-</span><span class="fl">57</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># update the data and write to new file</span></span>
+<span><span class="va">new_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_setdata.html">c3d_setdata</a></span><span class="op">(</span><span class="va">d</span>, newdata <span class="op">=</span> <span class="va">cut_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/c3d_write.html">c3d_write</a></span><span class="op">(</span><span class="va">new_object</span>, <span class="st">"modified.c3d"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </section><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

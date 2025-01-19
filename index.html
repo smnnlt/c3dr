@@ -63,7 +63,7 @@
 <h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
 </h2>
 <p>C3D (<a href="https://www.c3d.org/" class="external-link uri">https://www.c3d.org/</a>) is a file format for biomechanical data, namely motion capture recordings with additional analog data (e.g., from force plates or electromyography).</p>
-<p>The <code>c3dr</code> package allows to read and analyze C3D files in R (<a href="https://www.r-project.org/about.html" class="external-link uri">https://www.r-project.org/about.html</a>), a programming language popular for statistical analyses and data visualization. <code>c3dr</code> is build on the open-source C++ library EZC3D (<a href="https://github.com/pyomeca/ezc3d" class="external-link uri">https://github.com/pyomeca/ezc3d</a>).</p>
+<p>The <code>c3dr</code> package allows to read, analyze and write C3D files in R (<a href="https://www.r-project.org/about.html" class="external-link uri">https://www.r-project.org/about.html</a>), a programming language popular for statistical analyses and data visualization. <code>c3dr</code> is build on the open-source C++ library EZC3D (<a href="https://github.com/pyomeca/ezc3d" class="external-link uri">https://github.com/pyomeca/ezc3d</a>).</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -93,17 +93,16 @@
 <span><span class="co">#&gt; - 55 data points and 340 frames</span></span>
 <span><span class="co">#&gt; - 1.70 s measurement duration (200 fps)</span></span>
 <span><span class="co">#&gt; - 69 analog channels (2000 fps)</span></span>
+<span><span class="co">#&gt; - 2 force platforms with 3400 frames</span></span>
 <span></span>
 <span><span class="co"># structure of the imported object</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">d</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; List of 8</span></span>
+<span><span class="co">#&gt; List of 6</span></span>
 <span><span class="co">#&gt;  $ header       :List of 6</span></span>
-<span><span class="co">#&gt;  $ labels       : chr [1:55] "L_IAS" "L_IPS" "R_IPS" "R_IAS" ...</span></span>
-<span><span class="co">#&gt;  $ alabels      : chr [1:69] "FP1_FX" "FP1_FY" "FP1_FZ" "FP1_MX" ...</span></span>
+<span><span class="co">#&gt;  $ parameters   :List of 7</span></span>
 <span><span class="co">#&gt;  $ data         :List of 340</span></span>
 <span><span class="co">#&gt;  $ residuals    : num [1:340, 1:55] 1280 1280 1280 1280 1280 ...</span></span>
 <span><span class="co">#&gt;  $ analog       :List of 340</span></span>
-<span><span class="co">#&gt;  $ parameters   :List of 7</span></span>
 <span><span class="co">#&gt;  $ forceplatform:List of 2</span></span>
 <span><span class="co">#&gt;  - attr(*, "class")= chr [1:2] "c3d" "list"</span></span>
 <span></span>
@@ -144,7 +143,10 @@
 <span><span class="co">#&gt; [2,] 0.13992119 -0.0461483  0.0000000</span></span>
 <span><span class="co">#&gt; [3,] 0.09328079  0.1845932 -0.1835251</span></span>
 <span><span class="co">#&gt; [4,] 0.04664040 -0.1384449  0.0000000</span></span>
-<span><span class="co">#&gt; [5,] 0.04664040 -0.2768898  0.5505753</span></span></code></pre></div>
+<span><span class="co">#&gt; [5,] 0.04664040 -0.2768898  0.5505753</span></span>
+<span></span>
+<span><span class="co"># write data to a new c3d file</span></span>
+<span><span class="co"># c3d_write(d, "newfile.c3d")</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -154,7 +156,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"c3dr"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>To cite spiro <span class="cf">in</span> publications use<span class="sc">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  Simon <span class="fu">Nolte</span> (<span class="dv">2024</span>). c3dr<span class="sc">:</span> Work with motion capture data <span class="cf">in</span> R. R</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  Simon <span class="fu">Nolte</span> (<span class="dv">2025</span>). c3dr<span class="sc">:</span> Work with motion capture data <span class="cf">in</span> R. R</span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  package Version <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span>, https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>smnnlt<span class="sc">/</span>c3dr</span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
@@ -162,7 +164,7 @@
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="sc">@</span>Manual{,</span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>    title <span class="ot">=</span> {c3dr<span class="sc">:</span> Work with motion capture data <span class="cf">in</span> R},</span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>    author <span class="ot">=</span> {Simon Nolte},</span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>    year <span class="ot">=</span> {<span class="dv">2024</span>},</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>    year <span class="ot">=</span> {<span class="dv">2025</span>},</span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>smnnlt<span class="sc">/</span>c3dr},</span>
 <span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>    note <span class="ot">=</span> {R package version <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span>},</span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  }</span></code></pre></div>

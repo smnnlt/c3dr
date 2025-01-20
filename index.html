@@ -119,12 +119,12 @@
 <span><span class="co"># alternative long data format</span></span>
 <span><span class="va">p_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span>
 <span><span class="va">p_long</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
-<span><span class="co">#&gt;     frame type     L_IAS     L_IPS     R_IPS</span></span>
-<span><span class="co">#&gt; 1.x     1    x -220.1226 -398.1731 -392.8751</span></span>
-<span><span class="co">#&gt; 1.y     1    y  306.4248  237.0688  146.2103</span></span>
-<span><span class="co">#&gt; 1.z     1    z  846.3361  872.8574  880.3161</span></span>
-<span><span class="co">#&gt; 2.x     2    x -212.4696 -390.7831 -385.6659</span></span>
-<span><span class="co">#&gt; 2.y     2    y  306.5356  237.8691  147.1048</span></span>
+<span><span class="co">#&gt;   frame type     L_IAS     L_IPS     R_IPS</span></span>
+<span><span class="co">#&gt; 1     1    x -220.1226 -398.1731 -392.8751</span></span>
+<span><span class="co">#&gt; 2     1    y  306.4248  237.0688  146.2103</span></span>
+<span><span class="co">#&gt; 3     1    z  846.3361  872.8574  880.3161</span></span>
+<span><span class="co">#&gt; 4     2    x -212.4696 -390.7831 -385.6659</span></span>
+<span><span class="co">#&gt; 5     2    y  306.5356  237.8691  147.1048</span></span>
 <span></span>
 <span><span class="co"># read analog data</span></span>
 <span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c3d_analog.html">c3d_analog</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span>
@@ -154,7 +154,7 @@
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"c3dr"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>To cite spiro <span class="cf">in</span> publications use<span class="sc">:</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>To cite c3dr <span class="cf">in</span> publications use<span class="sc">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  Simon <span class="fu">Nolte</span> (<span class="dv">2025</span>). c3dr<span class="sc">:</span> Work with motion capture data <span class="cf">in</span> R. R</span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  package Version <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span>, https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>smnnlt<span class="sc">/</span>c3dr</span>

@@ -53,40 +53,36 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list of class c3d.</p>
+    <p>A list of class <code>c3d</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This function reads a c3d file with biomechanical data. It returns a c3d
 object, which is a list of all imported data.</p>
-<p>The resulting c3d object has the following entries:</p><ul><li><p><strong>header</strong> (A list with header parameters containing general
+<p>The resulting c3d object has the following entries:</p><ul><li><p><strong>header</strong>: A list with header parameters containing general
 meta data for the recording. <code>nframes</code> is the total number of frames
-recorded. <code>npoints</code> is the total number of points recorded.
-<code>nanalogs</code> is the number of analog channels. <code>analogperframe</code> is
-the rate of analog frames per point recording frame. <code>framerate</code> is
-the number of point frames per second. <code>nevents</code> is the number of
-recorded events.)</p></li>
-<li><p><strong>parameters</strong> (A list with meta data of the recording. The
-parameters are organized in groups, similarly to the original structure in
-the c3d file.)</p></li>
-<li><p><strong>data</strong> (A list with the point data of the recording. Each
-element in the list corresponds to one frame. Use <code><a href="c3d_data.html">c3d_data</a></code> to
-convert the data to a data frame.)</p></li>
-<li><p><strong>analog</strong> (A list with the
-analog data of the recording. Each element of the list corresponds to one
-frame of the point recording and contains a matrix with all analog channels
-(as columns) for all subframes (as rows). Use <code><a href="c3d_analog.html">c3d_analog</a></code> to
-convert the data to a data frame.)</p></li>
-<li><p><strong>forceplatform</strong> (A list with force platform data, if
-available. Each element in the list corresponds to one force platform. Each
-force platform is another list with the following elements: <code>forces</code>
-is a matrix of the forces. <code>moments</code> is a matrix of the moments.
-<code>tz</code> is a matrix of the moments on the center of pressure. <code>meta</code>
-is a list with further meta data of the force platform recording
-(<code>frames</code>, <code>funit</code> unit of force, <code>munit</code> unit of moments,
-<code>punit</code> unit of center of pressure position, <code>calmatrix</code>
-calibration matrix, <code>corners</code> position of the corners, <code>origin</code>
-position of the origin)</p></li>
+recorded. <code>npoints</code> is the total number of points recorded. <code>nanalogs</code> is
+the number of analog channels. <code>analogperframe</code> is the rate of analog
+frames per point recording frame. <code>framerate</code> is the number of point frames
+per second. <code>nevents</code> is the number of recorded events.</p></li>
+<li><p><strong>parameters</strong>: A list with meta data of the recording. The parameters are
+organized in groups, similarly to the original structure in the c3d file.</p></li>
+<li><p><strong>data</strong>: A list with the point data of the recording. Each element in the
+list corresponds to one frame. Use <code><a href="c3d_data.html">c3d_data()</a></code> to convert the data to a
+data frame.</p></li>
+<li><p><strong>analog</strong>: A list with the analog data of the recording. Each element of
+the list corresponds to one frame of the point recording and contains a
+matrix with all analog channels (as columns) for all subframes (as rows).
+Use <code><a href="c3d_analog.html">c3d_analog()</a></code> to convert the data to a data frame.</p></li>
+<li><p><strong>forceplatform</strong>: A list with force platform data, if available. Each
+element in the list corresponds to one force platform. Each force platform
+is another list with the following elements: <code>forces</code> is a matrix of the
+forces. <code>moments</code> is a matrix of the moments. <code>tz</code> is a matrix of the
+moments on the center of pressure. <code>meta</code> is a list with further meta data
+of the force platform recording (<code>frames</code>, <code>funit</code> unit of force, <code>munit</code>
+unit of moments, <code>punit</code> unit of center of pressure position, <code>calmatrix</code>
+calibration matrix, <code>corners</code> position of the corners, <code>origin</code> position of
+the origin).</p></li>
 </ul></div>
 
     <div class="section level2">
@@ -5840,7 +5836,7 @@ position of the origin)</p></li>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Simon Nolte.</p>
+  <p>Developed by Simon Nolte, German Sport University Cologne.</p>
 </div>
 
 <div class="pkgdown-footer-right">

@@ -65,20 +65,20 @@
 
     <section class="level2"><h2 id="what-are-c3d-files">What are C3D files?<a class="anchor" aria-label="anchor" href="#what-are-c3d-files"></a>
 </h2>
-<p>C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file’s structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, …), and a data section with the point data and additional analog data (e.g., from electromyography or force platforms). You can find more details about the C3D format on its <a href="https://www.c3d.org/index.html" class="external-link">Website</a> and in the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf" class="external-link">C3D User Guide</a>.</p>
+<p>C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file’s structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, …), and a data section with the point data (coordinates of the objects) and additional analog data (e.g., recordings from electromyography or force platforms). You can find more details about the C3D format on its <a href="https://www.c3d.org/index.html" class="external-link">Website</a> and in the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf" class="external-link">C3D User Guide</a>.</p>
 </section><section class="level2"><h2 id="why-use-the-c3dr-package-for-r">Why use the c3dr package for R?<a class="anchor" aria-label="anchor" href="#why-use-the-c3dr-package-for-r"></a>
 </h2>
 <p>Different programs for working with C3D files exist, but free open-source solutions that enable reproducible analysis are rare. Currently the best solution is the <a href="https://github.com/pyomeca/ezc3d" class="external-link">EZC3D</a> library, which has bindings for Matlab, Python, and Octave. However, R, a popular programming language for data science, previously did not support C3D files. By using the EZC3D C++ library, the <code>c3dr</code> package for R now provides a possibility to work with C3D data in the R programming environment.</p>
 </section><section class="level2"><h2 id="install-the-c3dr-package">Install the c3dr package<a class="anchor" aria-label="anchor" href="#install-the-c3dr-package"></a>
 </h2>
-<p>The <code>c3dr</code> package is currently available from GitHub. To install it, you first need to install the <code>pak</code> package with <code>install.packages("pak")</code>. After that simply execute the following code:</p>
+<p>The <code>c3dr</code> package is currently available from GitHub. To install it, you first need to install the <code>remotes</code> package with <code>install.packages("remotes")</code>. After that simply execute the following code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"smnnlt/c3dr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"smnnlt/c3dr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h2 id="read-c3d-files-with-c3dr">Read C3D files with c3dr<a class="anchor" aria-label="anchor" href="#read-c3d-files-with-c3dr"></a>
 </h2>
-<p>To import a c3d file simply run the <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function with the absolute or relative file path as argument.</p>
+<p>To import a c3d file simply run the <code><a href="../reference/c3d_read.html">c3d_read()</a></code> function with the absolute or relative file path as argument. We here use an example file provided with the packages, that can be called using <code><a href="../reference/c3d_example.html">c3d_example()</a></code>. The example file is a short recording of human walking, with force platforms measuring the ground impact of two steps. You can view a video of the recording <a href="https://github.com/smnnlt/c3dr/tree/main/video" class="external-link">here</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/smnnlt/c3dr" class="external-link">c3dr</a></span><span class="op">)</span></span>
@@ -154,7 +154,7 @@
 </div>
 </section><section class="level3"><h3 id="point-data">Point data<a class="anchor" aria-label="anchor" href="#point-data"></a>
 </h3>
-<p>c3d objects in R save point data as a nested list, with the two levels frame and point. For example for a c3d object named <code>f</code>, <code>f$data[[1]][[2]]</code> returns a three-coordinate vector of the first frame for the second data point.</p>
+<p>c3d objects in R save point data (the three-dimensional position of objects over time) as a nested list, with the two levels frame and point. For example for a c3d object named <code>f</code>, <code>f$data[[1]][[2]]</code> returns a three-coordinate vector of the first frame for the second data point.</p>
 <p>Usually it is much more convenient to work with the point data in a table (i.e., a data frame). This conversion happens with <code><a href="../reference/c3d_data.html">c3d_data()</a></code>, see <a href="#sec-point" class="quarto-xref">Section 6</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
@@ -295,16 +295,44 @@
 <span><span class="co">#&gt; 4 1.670889e-05</span></span>
 <span><span class="co">#&gt; 5 1.647999e-05</span></span></code></pre></div>
 </div>
+</section><section class="level2"><h2 id="further-analysis-of-imported-data">Further analysis of imported data<a class="anchor" aria-label="anchor" href="#further-analysis-of-imported-data"></a>
+</h2>
+<p>The ‘c3dr’ package is used to import and process motion capture data. Further analyses and visualizations can be performed in R, but this is outside the scope of the package. For a simple demonstration of visualising the imported data in R, see the following examples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># plot the z-coordinate (the vertical position) of the right heel</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p</span><span class="op">$</span><span class="va">R_FCC_z</span>, xlab <span class="op">=</span> <span class="st">"Recording Frame"</span>, ylab <span class="op">=</span> <span class="st">"Vertical Position (mm)"</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure><p><img src="c3dr_files/figure-html/unnamed-chunk-13-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># plot the vertical force vector of the second force platform</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="va">d</span><span class="op">$</span><span class="va">forceplatform</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">forces</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span>, </span>
+<span>  xlab <span class="op">=</span> <span class="st">"Recording Frame"</span>, </span>
+<span>  ylab <span class="op">=</span> <span class="st">"Vertical Force (N)"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure><p><img src="c3dr_files/figure-html/unnamed-chunk-13-2.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section><section class="level2"><h2 id="write-c3d-files-with-c3dr">Write C3D files with c3dr<a class="anchor" aria-label="anchor" href="#write-c3d-files-with-c3dr"></a>
 </h2>
 <p>You can write in existing c3d object in R to a c3d file with the <code><a href="../reference/c3d_write.html">c3d_write()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/c3d_write.html">c3d_write</a></span><span class="op">(</span><span class="va">d</span>, <span class="st">"newfile.c3d"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <p>To make modifications to the point or analog data before writing the file, you can use <code><a href="../reference/c3d_setdata.html">c3d_setdata()</a></code>. This function allows you to update a c3d object with modified data, e.g., to remove, add, rename or convert frames, points and analog channels.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># E.g. remove the last point from the point data</span></span>
 <span><span class="va">full_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/c3d_data.html">c3d_data</a></span><span class="op">(</span><span class="va">d</span>, format <span class="op">=</span> <span class="st">"long"</span><span class="op">)</span></span>
 <span><span class="va">cut_data</span> <span class="op">&lt;-</span> <span class="va">full_data</span><span class="op">[</span>, <span class="op">-</span><span class="fl">57</span><span class="op">]</span></span>
@@ -420,7 +448,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Simon Nolte.</p>
+  <p>Developed by Simon Nolte, German Sport University Cologne.</p>
 </div>
 
 <div class="pkgdown-footer-right">

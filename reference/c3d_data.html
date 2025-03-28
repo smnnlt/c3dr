@@ -52,10 +52,9 @@
 
 
 <dt id="arg-format">format<a class="anchor" aria-label="anchor" href="#arg-format"></a></dt>
-<dd><p>Either "wide" (default), "long", or "longest" to determine the
-format of the resulting data frame. The wide format has has three columns
-per point (x,y,z), the long format has three rows per frame per point
-(x,y,z). The longest format has one row per data entry.</p></dd>
+<dd><p>Either <code>"wide"</code> (default), <code>"long"</code>, or <code>"longest"</code> to
+determine the format of the resulting data frame. See the Data Formats
+section for more details.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -71,8 +70,44 @@ frame) is often more convenient.<code>c3d_data()</code> returns the point data f
 imported c3d object as a data frame.</p>
 <p>Analyses of data frames may require them to have different formats. For
 <code>c3d_data</code> output, different data formats (<code>"wide"</code>, <code>"long"</code>, <code>"longest"</code>)
-are available. See the <code>format</code> argument for more details. You can convert
+are available. See the section below for more details. You can convert
 between different formats with <code><a href="c3d_convert.html">c3d_convert()</a></code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="data-formats">Data Formats<a class="anchor" aria-label="anchor" href="#data-formats"></a></h2>
+
+<div class="section">
+<h3 id="wide">Wide<a class="anchor" aria-label="anchor" href="#wide"></a></h3>
+
+
+<p>The wide format has three numeric columns per point (x, y, z). The column
+names have the structure <code>pointname_type</code>, so for example the x-coordinate of
+a point named <code>C7</code> has the name <code>C7_x</code>. Each row corresponds to one recording
+frame.</p>
+</div>
+
+<div class="section">
+<h3 id="long">Long<a class="anchor" aria-label="anchor" href="#long"></a></h3>
+
+
+<p>The long format has one column per point. The column names correspond to the
+names of the points. Each recording frame corresponds to three rows of data
+(x, y, z). In additional to the point columns containing numeric data there
+are two additional columns: One that indicates the frame number (<code>frame</code>,
+numeric) and one that indicates the coordinate type (<code>type</code>, either x, y, or
+z, as a character).</p>
+</div>
+
+<div class="section">
+<h3 id="longest">Longest<a class="anchor" aria-label="anchor" href="#longest"></a></h3>
+
+
+<p>The longest format has one data column (<code>value</code>, numeric). The other columns
+indicate the frame number (<code>frame</code>, numeric), the coordinate type (<code>type</code>,
+either x, y, or z, as a character), and the point name (<code>point</code>, character).
+Thus, each row corresponds to one data entry.</p>
+</div>
+
     </div>
 
     <div class="section level2">

@@ -46,7 +46,7 @@ z, as a character).
 The longest format has one data column (\code{value}, numeric). The other columns
 indicate the frame number (\code{frame}, numeric), the coordinate type (\code{type},
 either x, y, or z, as a character), and the point name (\code{point}, character).
-Thus, each row corresponds to one data entry.
+Thus, each row of the data frame corresponds to one data entry.
 }
 }
 

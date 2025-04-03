@@ -1,3 +1,10 @@
+test_that("input validation works", {
+  d <- c3d_read(c3d_example())
+
+  expect_error(c3d_write(TRUE, "newdir"), regexp = "'x' needs to")
+  expect_error(c3d_write(d, TRUE), regexp = "'file' needs to")
+})
+
 test_that("reimport works", {
   d <- c3d_read(c3d_example())
   tmp <- tempfile() # create temporary file

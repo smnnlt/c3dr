@@ -38,6 +38,15 @@
 #' @export
 
 c3d_write <- function(x, file) {
+  if (!inherits(x, "c3d")) {
+    stop(
+      "'x' needs to be an object of class c3d, as generated",
+      " by c3d_read() or modified by c3d_setdata()."
+    )
+  }
+  if (!inherits(file, "character")) {
+    stop("'file' needs to be a character string with the path wo write to.")
+  }
   out <- write(x, file)
   invisible(out)
 }

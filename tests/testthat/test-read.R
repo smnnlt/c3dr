@@ -1,3 +1,7 @@
+test_that("input validation works", {
+  expect_error(c3d_read(TRUE), regexp = "'file' needs to ")
+})
+
 test_that("import returns c3d class list", {
   d <- c3d_read(c3d_example())
 

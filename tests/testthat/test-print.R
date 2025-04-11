@@ -1,3 +1,15 @@
+test_that("formatting works", {
+  d <- c3d_read(c3d_example())
+  expect_equal(
+    format(d),
+    paste0(
+      "A c3d object with\n- 55 data points and 340 frames\n- 1.70 s ",
+      "measurement duration (200 fps)\n- 69 analog channels (2000 fps)\n- 2 ",
+      "force platforms with 3400 frames"
+    )
+  )
+})
+
 test_that("printing works", {
   d <- c3d_read(c3d_example())
 

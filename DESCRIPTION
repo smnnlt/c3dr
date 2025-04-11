@@ -9,7 +9,7 @@ Authors@R: c(
     person("German Sport University Cologne", role = "fnd",
            comment = c(ROR = "0189raq88"))
   )
-Description: An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
+Description: A wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

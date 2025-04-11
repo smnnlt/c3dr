@@ -55,6 +55,20 @@ test_that("input validation works", {
     c3d_setdata(d, newanalog = data.frame()),
     regexp = "'newanalog' needs to"
   )
+
+  # empty data frames
+  emp_data <- data.frame()
+  class(emp_data) <- c("c3d_data", "data.frame")
+  emp_analog <- data.frame()
+  class(emp_analog) <- c("c3d_analog", "data.frame")
+  expect_error(
+    c3d_setdata(d, newdata = emp_data),
+    regexp = "'newdata' is an empty data.frame."
+  )
+  expect_error(
+    c3d_setdata(d, newanalog = emp_analog),
+    regexp = "'newanalog' is an empty data.frame."
+  )
 })
 
 test_that("function without data arguments returns same object", {

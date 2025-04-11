@@ -18,6 +18,9 @@ it invisibly.
 \description{
 Printing method for c3d objects
 }
+\details{
+Prints c3d objects by calling \code{\link[=format.c3d]{format.c3d()}}.
+}
 \examples{
 # Import example data
 d <- c3d_read(c3d_example())

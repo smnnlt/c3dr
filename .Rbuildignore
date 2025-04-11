@@ -13,3 +13,4 @@
 ^video$
 ^doc$
 ^Meta$
+^src/.*\.o$

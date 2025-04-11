@@ -14,9 +14,10 @@ file.
 Return the file path for an example data files within the \code{c3dr} package.
 }
 \details{
-The test data file a short recording of human walking using a full-body
-model. The test data includes analog channels (e.g., EMG) and data from two
-force platforms.
+The test data file contains a short recording of human walking using a
+full-body model. The test data includes analog channels (e.g., EMG) and data
+from two force platforms. The recording was made with a Qualisys motion
+capture system.
 
 The file is taken from \url{https://github.com/pyomeca/ezc3d-testFiles} under a
 GPL-3.0 license.

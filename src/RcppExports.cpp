@@ -11,7 +11,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // read
-List read(const std::string& filepath);
+Rcpp::List read(const std::string& filepath);
 RcppExport SEXP _c3dr_read(SEXP filepathSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -22,12 +22,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // write
-bool write(List object, const std::string& filepath);
+bool write(Rcpp::List object, const std::string& filepath);
 RcppExport SEXP _c3dr_write(SEXP objectSEXP, SEXP filepathSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< List >::type object(objectSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type object(objectSEXP);
     Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
     rcpp_result_gen = Rcpp::wrap(write(object, filepath));
     return rcpp_result_gen;

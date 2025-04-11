@@ -504,7 +504,7 @@ bool ezc3d::ParametersNS::Parameters::isGroup(
   try {
     groupIdx(groupName);
     return true;
-  } catch (std::invalid_argument) {
+  } catch (const std::invalid_argument&) {
     return false;
   }
 }
@@ -522,7 +522,7 @@ const ezc3d::ParametersNS::GroupNS::Group &
 ezc3d::ParametersNS::Parameters::group(size_t idx) const {
   try {
     return _groups.at(idx);
-  } catch (std::out_of_range) {
+  } catch (const std::out_of_range&) {
     throw std::out_of_range(
         "Parameters::group method is trying to access the group " +
         std::to_string(idx) + " while the maximum number of groups is " +
@@ -534,7 +534,7 @@ ezc3d::ParametersNS::GroupNS::Group &
 ezc3d::ParametersNS::Parameters::group(size_t idx) {
   try {
     return _groups.at(idx);
-  } catch (std::out_of_range) {
+  } catch (const std::out_of_range&) {
     throw std::out_of_range(
         "Parameters::group method is trying to access the group " +
         std::to_string(idx) + " while the maximum number of groups is " +

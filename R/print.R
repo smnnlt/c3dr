@@ -2,6 +2,8 @@
 #'
 #' Printing method for c3d objects
 #'
+#' Prints c3d objects by calling [format.c3d()].
+#'
 #' @param x A `list` of the class `c3d` to be printed.
 #' @param ... empty argument, currently not used.
 #'
@@ -15,6 +17,27 @@
 #' print(d)
 #' @export
 print.c3d <- function(x, ...) {
+  cat(format(x, ...), sep = "\n")
+  invisible(x)
+}
+
+
+#' Formatting c3d objects
+#'
+#' Formatting method for c3d objects
+#'
+#' @param x A `list` of the class `c3d` to be formatted.
+#' @param ... empty argument, currently not used.
+#'
+#' @return A character string with basic information for the c3d object.
+#'
+#' @examples
+#' # Import example data
+#' d <- c3d_read(c3d_example())
+#'
+#' format(d)
+#' @export
+format.c3d <- function(x, ...) {
   h <- x$header
   dur <- h$nframes / h$framerate
   afps <- h$analogperframe * h$framerate
@@ -46,6 +69,5 @@ print.c3d <- function(x, ...) {
     }
     m <- paste0(m, "\n- ", fp_n, " force platforms with ", fp_f, " frames")
   }
-  cat(m)
-  invisible(x)
+  m
 }

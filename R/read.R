@@ -43,6 +43,14 @@
 #' @export
 
 c3d_read <- function(file) {
+  if (!inherits(file, "character")) {
+    stop("'file' needs to be a character string with the path of a C3D file.")
+  } else if (!file.exists(file)) {
+    stop(
+      "'file' needs to be a correct path to a c3d file. Please check that you ",
+      "provided the correct path"
+    )
+  }
   out <- read(file)
   class(out) <- c("c3d", "list")
   out

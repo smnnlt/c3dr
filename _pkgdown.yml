@@ -18,5 +18,6 @@ reference:
 - title: "Helpers"
 - contents:
   - c3d_example
+  - format.c3d
   - print.c3d
 

@@ -1,10 +1,8 @@
 #include <Rcpp.h>
-#include "ezc3d_all.h"
-using namespace Rcpp;
-using namespace ezc3d;
+#include "ezc3d/ezc3d_all.h"
 
 // [[Rcpp::export]]
-bool write(List object, const std::string &filepath) {
+bool write(Rcpp::List object, const std::string &filepath) {
   // create empty c3d object
   ezc3d::c3d c3d;
   Rcpp::List p = object["parameters"];

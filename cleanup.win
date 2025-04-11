@@ -1,0 +1,6 @@
+@echo off
+del /Q src\*.o
+del /Q src\*.so
+del /Q src\ezc3d\*.o
+del /Q src\ezc3d\math\*.o
+del /Q src\ezc3d\modules\*.o

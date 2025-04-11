@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rm -rf src/*.o src/*.so \
+       src/ezc3d/*.o \
+       src/ezc3d/math/*.o \
+       src/ezc3d/modules/*.o
